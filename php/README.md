@@ -33,3 +33,58 @@ What is the difference between Zend Framework 2 and Zend Framework 1?
 
     MVC is been around since almost a decade and if you are one of them who are feeling sad for a new architecture altogether then hey! IT is 'your chosen' domain, keep up with the trends and update yourself! Start ZF2 from here.
     http://framework.zend.com/manual/2.0/en/user-guide/overview.html
+
+How to pass data in header while using CURL?
+
+    $A = 'ZAXGHGN';
+    $INPUT = '<?xml version="1.0" encoding="utf-8"?><a><b>test data</b></a>'; // is this a valid XML???
+    
+    $headers = array(
+    "Content-type: text/xml",
+    "Content-length: " . strlen($INPUT),
+    "A: " . $A,
+    // like this  if you want to have this value  in the header ... but to put the xml inside the header info...
+    "Connection: close"
+    );
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, TRUE);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $INPUT); // send xml data using POST
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    $data = curl_exec($ch);
+    if(curl_errno($ch))
+    print curl_error($ch);
+    else
+    curl_close($ch);
+    echo "<pre>";
+    print_r($data);
+    exit;
+
+How can we prevent SQL-injection in PHP?
+    
+    Use prepared statements and parameterized queries. These are SQL statements that are sent to and parsed by the database server separately from any parameters. This way it is impossible for an attacker to inject malicious SQL.
+    You basically have two options to achieve this:
+        - Using PDO (for any supported database driver):
+
+            $stmt = $pdo->prepare('SELECT * FROM employees WHERE name = :name');
+            
+            $stmt->execute([ 'name' => $name ]);
+            
+            foreach ($stmt as $row) {
+            // Do something with $row
+            }
+        - Using MySQLi (for MySQL):
+
+            $stmt = $dbConnection->prepare('SELECT * FROM employees WHERE name = ?');
+            $stmt->bind_param('s', $name); // 's' specifies the variable type => 'string'
+            
+            $stmt->execute();
+            
+            $result = $stmt->get_result();
+            while ($row = $result->fetch_assoc()) {
+            // Do something with $row
+            }
+    If you're connecting to a database other than MySQL, there is a driver-specific second option that you can refer to (for example, pg_prepare() and pg_execute() for PostgreSQL). PDO is the universal option.
