@@ -88,6 +88,10 @@ How can we prevent SQL-injection in PHP?
             // Do something with $row
             }
     If you're connecting to a database other than MySQL, there is a driver-specific second option that you can refer to (for example, pg_prepare() and pg_execute() for PostgreSQL). PDO is the universal option.
+What is basic difference between require_once(), include_once() and include()?
+    
+    require_once(): if it does not get the required file then it stops the execution and throws a fatal error.
+    include() and include_once():if it does not get the include file then it throws the fatal error but does not stop the execution of the script. The include_once() statement includes and evaluates the specified file during the execution of the script. This is a behavior similar to the include() statement, with the only difference being that if the code from a file has already been included, it will not be included again. As the name suggests, it will be included just once.
 
 What Load Balancing?
     
