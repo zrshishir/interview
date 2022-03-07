@@ -99,8 +99,16 @@ What is basic difference between require_once(), include_once() and include()?
     if the code from a file has already been included,
     it will not be included again. As the name suggests, it will be included just once.
 
-What will be the output- echo print(‘1’)?
+What will be the output - echo print(‘1’)?
 
     the output is ‘11’ Because print() is return type function so it first print 1 and then it 
     return true to echo and echo has return type so it just print 11. 
     Print has return value 1 and it can be used in expectations. Echo faster and multiple argument
+
+What is Namespace?
+
+    Way of grouping related classes, interfaces, functions and constants.
+
+How many error level available in php?
+
+    There 16 error levels in php. https://www.tutorialrepublic.com/php-reference/php-error-levels.php
