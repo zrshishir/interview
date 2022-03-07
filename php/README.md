@@ -112,3 +112,7 @@ What is Namespace?
 How many error level available in php?
 
     There 16 error levels in php. https://www.tutorialrepublic.com/php-reference/php-error-levels.php
+
+Did you use Caching ? What are some processes of caching ?
+
+    https://medium.com/system-design-blog/what-is-caching-1492abb92143
