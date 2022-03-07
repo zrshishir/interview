@@ -116,3 +116,94 @@ How many error level available in php?
 Did you use Caching ? What are some processes of caching ?
 
     https://medium.com/system-design-blog/what-is-caching-1492abb92143
+
+New features for php7?
+
+    - Scalar Type Declaration
+        <?php
+        // Coercive mode
+        function sumOfInts(int ...$ints)
+        {
+        return array_sum($ints);
+        }
+        
+        var_dump(sumOfInts(2, '3', 4.1));
+    - Return type declaration
+        <?php
+
+        function arraysSum(array ...$arrays): array
+        {
+        return array_map(function(array $array): int {
+        return array_sum($array);
+        }, $arrays);
+        }
+        
+        print_r(arraysSum([1,2,3], [4,5,6], [7,8,9]));
+    - Null coalescing operator
+        <?php
+            // Fetches the value of $_GET['user'] and returns 'nobody'
+            // if it does not exist.
+            $username = $_GET['user'] ?? 'nobody';
+            // This is equivalent to:
+            $username = isset($_GET['user']) ? $_GET['user'] : 'nobody';
+            
+            // Coalescing can be chained: this will return the first
+            // defined value out of $_GET['user'], $_POST['user'], and
+            // 'nobody'.
+            $username = $_GET['user'] ?? $_POST['user'] ?? 'nobody';
+        ?>
+    - Spaceship operator
+        <?php
+        // Integers
+        echo 1 <=> 1; // 0
+        echo 1 <=> 2; // -1
+        echo 2 <=> 1; // 1
+        
+        // Floats
+        echo 1.5 <=> 1.5; // 0
+        echo 1.5 <=> 2.5; // -1
+        echo 2.5 <=> 1.5; // 1
+        
+        // Strings
+        echo "a" <=> "a"; // 0
+        echo "a" <=> "b"; // -1
+        echo "b" <=> "a"; // 1
+        ?>
+    - Constant array using define
+        <?php
+        define('ANIMALS', [
+        'dog',
+        'cat',
+        'bird'
+        ]);
+        
+        echo ANIMALS[1]; // outputs "cat"
+        ?>
+    - Unicode codepoint escape syntax
+        echo "\u{aa}";
+        echo "\u{0000aa}";
+        echo "\u{9999}";
+        
+        Output:
+        ª
+        ª (same as before but with optional leading 0's)
+        香
+        
+        
+        And much more……
+
+php 7.4 new features? 
+
+    https://www.php.net/manual/en/migration74.new-features.php
+
+What is the difference between GET and POST?
+
+    - GET displays the submitted data as part of the URL, during POST this information is not shown as it’s encoded in the request.
+    - GET can handle a maximum of 2048 characters, POST has no such restrictions.
+    - GET allows only ASCII data, POST has no restrictions, binary data are also allowed.
+    - Normally GET is used to retrieve data while POST to insert and update.
+
+What are Traits?
+
+    Traits are a mechanism that allows you to create reusable code in languages like PHP where multiple inheritance is not supported. A Trait cannot be instantiated on its own.
+    It’s important that a developer knows the powerful features of the language (s)he is working on, and Trait is one of such features.
