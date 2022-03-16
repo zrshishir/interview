@@ -1,5 +1,7 @@
 What is OOPs?
 
+    An object is an instance of a class. It has its own state, behavior, and identity.
+    More over 
     Object Oriented is an approach to software development that models application around real 
     world objects such as employees, cars, bank accounts, etc. A class define the properties 
     and methods of a real world object. An object is an occurrence of a class.
@@ -23,4 +25,7 @@ What are the three features of OOP?
     Re-usability– a number of children, can inherit from the same parent. This is very useful when we have to provide common functionality such as adding, updating and deleting data from the database.
     Polymorphism – this is concerned with having a single form but many different implementation ways. The main purpose of polymorphism is;
     Simplify maintaining applications and making them more extendable.
+
+What is a class?
+    A class is simply a representation of a type of object. It is the blueprint/plan/template that describes the details of an object.
 
