@@ -42,7 +42,7 @@ What is UML?
 
 Class Diagram Example?
 
-![class diagram example](php/oop/employee_class_diagram.png)
+![class diagram example](/php/oop/employee_class_diagram.png)
 
 Class Diagram Key
 
